@@ -3,7 +3,7 @@
 
 ### 1. Installation
 
-BlinkHahaNew application uses nerves version `1.9` . To run nerves on your operating system there are a number of programs required.
+BlinkHahaNew application uses nerves version `1.9` . To run nerves on your operating system there are a number of programs required to get your machine configured.
 
 Here is a [comprehensive guide](https://hexdocs.pm/nerves/installation.html#content) on  the installation process depending on your operating system.
 
@@ -16,6 +16,7 @@ We highly recommend understanding the following [terms](https://hexdocs.pm/nerve
 
 
 To start your Nerves app:
+  * change to `blinkly_haha_new` app directory `cd blinkly_haha_new`
   * `export MIX_TARGET=my_target` or prefix every command with
     `MIX_TARGET=my_target`. For example, `MIX_TARGET=rpi3`
   * Install dependencies with `mix deps.get`
