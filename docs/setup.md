@@ -38,8 +38,19 @@ Hardware requirements for connection:
  - Breadboard power supply
 
 
-### WIP:
+### Green Blink on the Raspberry pi
+  Under this section we will explain a simple setup to make your raspberry pi blink Green. After compiling your code using the steps outlined under the getting started section,
+   1. Step 1, insert the burned micro SD card, in the Micro SD Card port
+   2. Step 2, power up your raspberry pi using your USB cable which you can connect to your laptop. The ACT LED on the raspberry pi will turn green.
 
+### Inspecting in IEX
+  - CD into your nerves project(blinky_haha_new), make sure your target is exported and you are connected to your target device
+  - Run ssh nerves.local(make sure you have a good internet connection) and an interactive shell will come up
+
+   
+   
+
+### WIP:
  1. Explain how to get rpi to blink(basic example)
     - power rpi
     - insert Sd card
