@@ -39,14 +39,29 @@ Hardware requirements for connection:
 
 
 ### Green Blink on the Raspberry pi
+
   Under this section we will explain a simple setup to make your raspberry pi blink Green. After compiling your code using the steps outlined under the getting started section,
-   1. Step 1, insert the burned micro SD card, in the Micro SD Card port
-   2. Step 2, power up your raspberry pi using your USB cable which you can connect to your laptop. The ACT LED on the raspberry pi will turn green.
+   1. insert the burned micro SD card, in the Micro SD Card port
+   2. power up your raspberry pi using your USB cable which you can connect to your laptop. The `ACT LED` on the raspberry pi will turn green.
 
 ### Inspecting in IEX
-  - CD into your nerves project(blinky_haha_new), make sure your target is exported and you are connected to your target device
-  - Run ssh nerves.local(make sure you have a good internet connection) and an interactive shell will come up
 
+To interact with the `blinker`, open an `IEx` prompt:
+
+  1. CD into your nerves project(blinky_haha_new), make sure your target is exported and you are connected to your target device.
+  2. Run `ssh nerves.local`(make sure you have a good internet connection) and an interactive shell will come up.
+
+  3. alias/import `BlinklyHahaNew.Blinker` module in the `IEx` 
+
+     ```elixir
+     iex> import BlinklyHahaNew.Blinker
+
+     iex> disable()
+
+     iex> enable()
+     ```
+
+  Observe how the `LED` behaves. By default when the application is started, the LED is enabled it turns `green` . Invoking `disable()`, the `LED` is turned `OFF`.
    
    
 
@@ -55,6 +70,7 @@ Hardware requirements for connection:
     - power rpi
     - insert Sd card
     - ensure artifacts are burned to SD card 
+    - state down challenges faced when ssh
  2. Upload video of the connection 
  3. Debugging process
  
