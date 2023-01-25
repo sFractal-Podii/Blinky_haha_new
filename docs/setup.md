@@ -62,7 +62,11 @@ To interact with the `blinker`, open an `IEx` prompt:
      ```
 
   Observe how the `LED` behaves. By default when the application is started, the LED is enabled it turns `green` . Invoking `disable()`, the `LED` is turned `OFF`.
-   
+
+Using a screen(monitor) to inspect in IEX:
+  1. Connect your raspberry pi to it's power cable(ensure your pi has the "burnt" sd card)
+  2. Then connect your HDMI cable and you should be able to see the IEX shell on your screen(monitor)
+
    
 
 ### WIP:
