@@ -1,6 +1,6 @@
 # Background
 
-This guide will assist in the process of generating a Software Bill-of-Materials (SBoM) for Mix projects, in (CycloneDX format)[https://cyclonedx.org/].
+This guide will assist in the process of generating a Software Bill-of-Materials (SBoM) for Mix projects, in [CycloneDX format](https://cyclonedx.org/).
 
 
 ## Installation
@@ -20,7 +20,7 @@ end
 
 ```
 
-The (git branch)[https://github.com/sigu/sbom.git] used automates the following task in this project:
+The [git branch](https://github.com/sigu/sbom.git) used automates the following task in this project:
 
   1. Generating Elixir bom
   2. Installation of cyclonedx
