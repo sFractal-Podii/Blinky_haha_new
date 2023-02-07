@@ -62,23 +62,13 @@ test: ## Run the test suite
 .PHONY: format
 format: mix format ## Run formatting tools on the code
 
-.PHONY: sbom sbom_fast
-sbom: ## creates sbom for both  npm and hex dependancies
-	mix deps.get && mix sbom.cyclonedx -o elixir_bom.xml
-	cd assets/  && npm install @cyclonedx/bom@3.4.1 && ./node_modules/@cyclonedx/bom/bin/make-bom.js -o ../$(SBOM_FILE_NAME_CY).xml && cd ..
-	./cyclonedx-cli merge --name $(APP_NAME) --version $(APP_VERSION) --input-files ./$(SBOM_FILE_NAME_CY).xml ./elixir_bom.xml --output-file $(SBOM_FILE_NAME_CY)-all.xml
-	./cyclonedx-cli convert --input-file $(SBOM_FILE_NAME_CY)-all.xml --output-file $(SBOM_FILE_NAME_CY).json
-	./cyclonedx-cli convert --input-file $(SBOM_FILE_NAME_CY).json --output-format spdxjson --output-file $(SBOM_FILE_NAME_SPDX).spdx
-	rm $(SBOM_FILE_NAME_CY).xml && mv $(SBOM_FILE_NAME_CY)-all.xml $(SBOM_FILE_NAME_CY).xml
-	cp $(SBOM_FILE_NAME_CY).* priv/static/.well-known/sbom
-	cp $(SBOM_FILE_NAME_SPDX).* priv/static/.well-known/sbom
+.PHONY: cli_install 
+cli_install: ##Install CLI if you don't already have it
+	mix sbom.install
 
-sbom_fast: ## creates sbom without dependancy instalment, assumes you have cyclonedx-bom javascript package installed globally
+.PHONY: sbom
+sbom: ##Install CLI, make the bom files and convert them
+	mix deps.get && mix sbom.install 
 	mix sbom.cyclonedx -o elixir_bom.xml
-	cd assets/ && ./node_modules/@cyclonedx/bom/bin/make-bom.js -o ../$(SBOM_FILE_NAME_CY).xml && cd ..
-	./cyclonedx-cli merge --name $(APP_NAME) --version $(APP_VERSION) --input-files ./$(SBOM_FILE_NAME_CY).xml ./elixir_bom.xml --output-file $(SBOM_FILE_NAME_CY)-all.xml
-	./cyclonedx-cli convert --input-file $(SBOM_FILE_NAME_CY)-all.xml --output-file $(SBOM_FILE_NAME_CY).json
-	./cyclonedx-cli convert --input-file $(SBOM_FILE_NAME_CY).json --output-format spdxjson --output-file $(SBOM_FILE_NAME_SPDX).spdx
-	rm $(SBOM_FILE_NAME_CY).xml && mv $(SBOM_FILE_NAME_CY)-all.xml $(SBOM_FILE_NAME_CY).xml
-	cp $(SBOM_FILE_NAME_CY).* priv/static/.well-known/sbom
-	cp $(SBOM_FILE_NAME_SPDX).* priv/static/.well-known/sbom
+	mix sbom.convert -i elixir_bom.xml
+
