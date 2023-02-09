@@ -68,7 +68,7 @@ cli_install: ##Install CLI if you don't already have it
 
 .PHONY: sbom
 sbom: ##Install CLI, make the bom files and convert them
-	mix archive.install hex nerves_bootstrap && mix deps.get
+	mix archive.install hex nerves_bootstrap --force && mix deps.get
 	mix sbom.install 
 	mix sbom.cyclonedx -o elixir_bom.xml
 	mix sbom.convert -i elixir_bom.xml

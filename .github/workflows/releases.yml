@@ -1,7 +1,10 @@
 on:
-  release:
-    types: 
-      - published
+  push:
+    branches:
+    - create_release
+  # release:
+  #   types: 
+  #     - published
 
 name: Upload Release Asset
 
