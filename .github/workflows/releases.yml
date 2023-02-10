@@ -12,6 +12,8 @@ jobs:
   build:
     name: Upload Release Asset
     runs-on: ubuntu-18.04
+    outputs:
+      upload_url: ${{ steps.step_upload_url.outputs.upload_url}}
     steps:
       - uses: actions/checkout@v2
       - name: Set up Elixir
@@ -39,8 +41,10 @@ jobs:
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - id: step_upload_url 
+        run: echo "::set-output name=upload_url::${{ steps.create_release.outputs.upload_url }}"
+        # upload_url: ${{ github.event.release.upload_url }}
         with:
-          upload_url: ${{ github.event.release.upload_url }}
           asset_path: ./blinkly_haha_new.0.1.0-cyclonedx-sbom.1.0.0.json #use env variables for the file path & name
           asset_name: blinkly_haha_new.0.1.0-cyclonedx-sbom.1.0.0.json
           asset_content_type: application/octet-stream
