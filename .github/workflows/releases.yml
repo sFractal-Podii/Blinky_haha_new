@@ -45,13 +45,15 @@ jobs:
         run: |
           make sbom
       - name: Upload SBOM Json
+        id: upload_sbom 
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           # upload_url: ${{ needs.output_def.outputs.upload_url }}
+          # upload_url: ${{ github.event.release.upload_url }}
+          upload_url: ${{ steps.upload_sbom.outputs.upload_url }}
           asset_path: ./blinkly_haha_new.0.1.0-cyclonedx-sbom.1.0.0.json #use env variables for the file path & name
-          upload_url: ${{ github.event.release.upload_url }}
           asset_name: blinkly_haha_new.0.1.0-cyclonedx-sbom.1.0.0.json
           asset_content_type: application/octet-stream
       - name: Upload SBOM XML
