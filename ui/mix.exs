@@ -1,6 +1,8 @@
 defmodule Ui.MixProject do
   use Mix.Project
 
+  @all_targets [:rpi, :rpi0, :rpi2, :rpi3, :rpi3a, :rpi4, :bbb, :osd32mp1, :x86_64, :grisp2]
+
   def project do
     [
       app: :ui,
@@ -48,7 +50,9 @@ defmodule Ui.MixProject do
       {:telemetry_poller, "~> 1.0"},
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2"},
-      {:plug_cowboy, "~> 2.5"}
+      {:plug_cowboy, "~> 2.5"},
+      # {:nerves_leds, "~> 0.8", targets: @all_targets},
+      {:blinkly_haha_new, path: "/home/tracey/podii_projects/blinkly_haha_new"}
     ]
   end
 

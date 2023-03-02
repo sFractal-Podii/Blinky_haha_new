@@ -16,6 +16,8 @@ defmodule Ui.Application do
       {Phoenix.PubSub, name: Ui.PubSub},
       # Start the Endpoint (http/https)
       UiWeb.Endpoint
+      # {BlinklyHahaNew.Blinker, name: BlinklyHahaNew.Blinker}
+
       # Start a worker by calling: Ui.Worker.start_link(arg)
       # {Ui.Worker, arg}
     ]

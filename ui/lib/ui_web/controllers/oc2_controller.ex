@@ -103,6 +103,7 @@ defmodule UiWeb.OC2Controller do
 
   defp set_led_off(conn) do
     Logger.debug("set_led_off - just returning ok for now")
+    # complains BlinklyHahaNew.Blinker is not available
     BlinklyHahaNew.Blinker.disable()
     json(conn, %{status: :ok})
   end
