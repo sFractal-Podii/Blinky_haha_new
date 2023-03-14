@@ -21,6 +21,23 @@ config :nerves,
     hostname_pattern: "nerves-%s"
   ]
 
+config :ui, UiWeb.Endpoint,
+  url: [host: "nerves.local"],
+  http: [port: 80],
+  cache_static_manifest: "priv/static/cache_manifest.json",
+  secret_key_base: "HEY05EB1dFVSu6KykKHuS4rQPQzSHv4F7mGVB/gnDLrIu75wE/ytBXy2TaL3A6RA",
+  live_view: [signing_salt: "AAAABjEyERMkxgDh"],
+  check_origin: false,
+  render_errors: [view: UiWeb.ErrorView, accepts: ~w(html json), layout: false],
+  pubsub_server: Ui.PubSub,
+  # Start the server since we're running in a release instead of through `mix`
+  server: true,
+  # Nerves root filesystem is read-only, so disable the code reloader
+  code_reloader: false
+
+# Use Jason for JSON parsing in Phoenix
+config :phoenix, :json_library, Jason
+
 # Configure the device for SSH IEx prompt access and firmware updates
 #
 # * See https://hexdocs.pm/nerves_ssh/readme.html for general SSH configuration
@@ -29,7 +46,7 @@ config :nerves,
 keys =
   [
     Path.join([System.user_home!(), ".ssh", "id_rsa.pub"])
-    # Path.join([System.user_home!(), ".ssh", "id_ecdsa.pub"]),
+    # Path.join([System.user_home!(), ".ssh", "id_ecdsa.pub"])
     # Path.join([System.user_home!(), ".ssh", "id_ed25519.pub"])
   ]
   |> Enum.filter(&File.exists?/1)

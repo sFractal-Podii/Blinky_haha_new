@@ -60,7 +60,9 @@ defmodule BlinklyHahaNew.MixProject do
        git: "https://github.com/sigu/sbom.git",
        only: :dev,
        branch: "auto-install-bom",
-       runtime: false}
+       runtime: false},
+      {:ui, path: "../ui", env: Mix.env()}
+      # {:ssh_subsystem_fwup, "~> 0.6.0"}
     ]
   end
 

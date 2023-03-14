@@ -16,6 +16,7 @@ defmodule BlinklyHahaNew.Application do
         # Children for all targets
         # Starts a worker by calling: BlinklyHahaNew.Worker.start_link(arg)
         # {BlinklyHahaNew.Worker, arg},
+        # {NervesSSH, nerves_ssh_options}
         {BlinklyHahaNew.Blinker, name: BlinklyHahaNew.Blinker}
       ] ++ children(target())
 
