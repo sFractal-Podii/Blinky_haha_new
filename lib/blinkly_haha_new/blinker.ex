@@ -32,11 +32,11 @@ defmodule BlinklyHahaNew.Blinker do
     {:noreply, state}
   end
 
-  def enable() do
+  def enable do
     GenServer.cast(__MODULE__, :enable)
   end
 
-  def disable() do
+  def disable do
     GenServer.cast(__MODULE__, :disable)
   end
 end
