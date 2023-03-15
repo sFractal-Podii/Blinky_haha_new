@@ -15,26 +15,14 @@ config :ui, UiWeb.Endpoint,
   url: [host: "localhost"],
   render_errors: [view: UiWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: Ui.PubSub,
-  live_view: [signing_salt: "R4+fLPpJ"]
-
-# Configures the mailer
-#
-# By default it uses the "Local" adapter which stores the emails
-# locally. You can see the emails in your browser, at "/dev/mailbox".
-#
-# For production it's recommended to configure a different adapter
-# at the `config/runtime.exs`.
-config :ui, Ui.Mailer, adapter: Swoosh.Adapters.Local
-
-# Swoosh API client is needed for adapters other than SMTP.
-config :swoosh, :api_client, false
+  live_view: [signing_salt: "4jVC64mw"]
 
 # Configure esbuild (the version is required)
 config :esbuild,
-  version: "0.14.29",
+  version: "0.12.18",
   default: [
     args:
-      ~w(js/app.js --bundle --target=es2017 --outdir=../priv/static/assets --external:/fonts/* --external:/images/*),
+      ~w(js/app.js --bundle --target=es2016 --outdir=../priv/static/assets --external:/fonts/* --external:/images/*),
     cd: Path.expand("../assets", __DIR__),
     env: %{"NODE_PATH" => Path.expand("../deps", __DIR__)}
   ]

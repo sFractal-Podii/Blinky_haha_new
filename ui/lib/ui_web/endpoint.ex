@@ -7,7 +7,7 @@ defmodule UiWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_ui_key",
-    signing_salt: "8cGQDa4h"
+    signing_salt: "G16heTTf"
   ]
 
   socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]

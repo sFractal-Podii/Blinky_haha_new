@@ -2,13 +2,9 @@ import Config
 
 # Configure your database
 config :ui, Ui.Repo,
-  username: "postgres",
-  password: "postgres",
-  hostname: "localhost",
-  database: "ui_dev",
-  stacktrace: true,
-  show_sensitive_data_on_connection_error: true,
-  pool_size: 10
+  database: Path.expand("../ui_dev.db", Path.dirname(__ENV__.file)),
+  pool_size: 5,
+  show_sensitive_data_on_connection_error: true
 
 # For development, we disable any cache and enable
 # debugging and code reloading.
@@ -23,7 +19,7 @@ config :ui, UiWeb.Endpoint,
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "Ge6G46A8sWsMV+QuRbzClqlzGwz/lAulkYY3RUW/y5NpROvdiNCkWG5aJZMM8fjc",
+  secret_key_base: "O2Qalbsez/Ei1FqotFjkfUpep53aAyMjotAPfe2XCb3Cw2fi4jM0y4rhTUBlJpvM",
   watchers: [
     # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
     esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
