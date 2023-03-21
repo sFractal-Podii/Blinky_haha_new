@@ -1,4 +1,4 @@
-defmodule BlinklyHahaNew.Blinker do
+defmodule Firmware.Blinker do
   use GenServer
 
   @moduledoc """
