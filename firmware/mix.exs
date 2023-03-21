@@ -39,6 +39,7 @@ defmodule Firmware.MixProject do
       # Dependencies for all targets except :host
       {:nerves_runtime, "~> 0.13.0", targets: @all_targets},
       {:nerves_pack, "~> 0.7.0", targets: @all_targets},
+      {:nerves_leds, "~> 0.8", targets: @all_targets},
 
       # Poncho dependencies
       # See https://embedded-elixir.com/post/2017-05-19-poncho-projects
@@ -58,7 +59,8 @@ defmodule Firmware.MixProject do
       {:nerves_system_bbb, "~> 2.12", runtime: false, targets: :bbb},
       {:nerves_system_osd32mp1, "~> 0.8", runtime: false, targets: :osd32mp1},
       {:nerves_system_x86_64, "~> 1.17", runtime: false, targets: :x86_64},
-      {:nerves_system_grisp2, "~> 0.3", runtime: false, targets: :grisp2}
+      {:nerves_system_grisp2, "~> 0.3", runtime: false, targets: :grisp2},
+      {:ssh_subsystem_fwup, "~> 0.6.0"}
     ]
   end
 
