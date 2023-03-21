@@ -1,0 +1,60 @@
+on:
+  push:
+    branches:
+    - create_release
+
+name: Upload Release Asset
+
+jobs:
+  build:
+    name: Upload Release Asset
+    runs-on: ubuntu-18.04
+    # needs: output_def
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Elixir
+        uses: actions/setup-elixir@v1
+        with:
+          elixir-version: '1.14' # Define the elixir version [required]
+          otp-version: '25' # Define the OTP version [required]
+          experimental-otp: true
+      - name: Restore dependencies cache
+        uses: actions/cache@v2
+        with:
+          path: deps
+          key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
+          restore-keys: ${{ runner.os }}-mix-
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.8.0
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Build project
+        run: |
+          make sbom
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: Release.txt
+
+      - name: Upload SBOM Json
+        id: upload_sbom 
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          # upload_url: ${{ steps.upload_sbom.outputs.upload_url }}
+          asset_path: ./blinkly_haha_new.0.1.0-cyclonedx-sbom.1.0.0.json #use env variables for the file path & name
+          asset_name: blinkly_haha_new.0.1.0-cyclonedx-sbom.1.0.0.json
+          asset_content_type: application/octet-stream
+      # - name: Upload SBOM XML
+      #   uses: actions/upload-release-asset@v1
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     upload_url: ${{ github.event.release.upload_url }}
+      #     asset_path: ./blinkly_haha_new.0.1.0-cyclonedx-sbom.1.0.0.xml #use env variables for the file path & name
+      #     asset_name: blinkly_haha_new.0.1.0-cyclonedx-sbom.1.0.0.xml
+      #     asset_content_type: application/octet-stream
