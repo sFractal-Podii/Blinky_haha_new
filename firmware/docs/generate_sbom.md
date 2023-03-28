@@ -73,3 +73,8 @@ The [git branch](https://github.com/sigu/sbom.git) used automates the following 
    mix sbom.convert -i another_bom.xml
    
    ```
+
+   ### Generated SBOM files Attached in release
+
+   1. https://github.com/sFractal-Podii/Blinky_haha_new/releases/download/v0.4.0/firmware.0.4.0-.zip
+   

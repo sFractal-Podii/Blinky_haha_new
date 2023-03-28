@@ -1,7 +1,4 @@
 # Firmware
-
-**TODO: Add description**
-
 ## Targets
 
 Nerves applications produce images for hardware targets based on the
@@ -22,6 +19,26 @@ To start your Nerves app:
   * Install dependencies with `mix deps.get`
   * Create firmware with `mix firmware`
   * Burn to an SD card with `mix firmware.burn`
+
+
+## [Generate SBOM Setup guide](./docs/generate_sbom.md)
+
+See [setup guide](./docs/generate_sbom.md) for the following:
+
+  1. Generating Elixir bom
+  2. Installation of cyclonedx
+  3. Converting bom file to different formats(spdx, json e.t.c)
+
+
+## [Interacting with Blinker Setup guide](./docs/setup.md)
+
+See [setup guide](./docs/setup.md) for the following:
+
+  1. Installing nerves
+  2. Connecting to nerves target
+  3. Green Blink on the Raspberry pi
+  4. Interact with blinker on the nerves interactive shell
+
 
 ## Learn more
 
