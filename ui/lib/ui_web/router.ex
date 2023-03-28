@@ -20,6 +20,12 @@ defmodule UiWeb.Router do
     live "/", PageLive, :index
   end
 
+  scope "/openc2", UiWeb do
+    pipe_through :api
+
+     post "/", OC2Controller, :command
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", UiWeb do
   #   pipe_through :api
