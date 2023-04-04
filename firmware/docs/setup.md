@@ -67,6 +67,23 @@ Using a screen(monitor) to inspect in IEX:
   1. Connect your raspberry pi to it's power cable(ensure your pi has the "burnt" sd card)
   2. Then connect your HDMI cable and you should be able to see the IEX shell on your screen(monitor)
 
+
+  ### Interact with Phoenix web Interface
+
+  This application is using the [poncho project structure](https://hexdocs.pm/nerves/user-interfaces.html#create-a-poncho-project).
+
+  To run the phoenix server before connecting rpi
+
+   1. cd to `/ui`
+   2. Run `mix phx.server`
+   3. On the browser access the `localhost:4000`
+
+   To run the phoenix server after connecting rpi.
+   This part assumes that the `ui` changes are already burned on the SD card
+
+   1. Run `ssh nerves.local` 
+   2. On the browser access the UI using `http://nerves.local`
+
    
 
 ### WIP:
