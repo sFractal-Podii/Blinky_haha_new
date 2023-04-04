@@ -38,6 +38,7 @@ See [setup guide](./docs/setup.md) for the following:
   2. Connecting to nerves target
   3. Green Blink on the Raspberry pi
   4. Interact with blinker on the nerves interactive shell
+  5. Interact with Phoenix web Interface
 
 
 ## Learn more
