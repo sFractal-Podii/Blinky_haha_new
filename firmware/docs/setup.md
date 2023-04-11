@@ -84,6 +84,42 @@ Using a screen(monitor) to inspect in IEX:
    1. Run `ssh nerves.local` 
    2. On the browser access the UI using `http://nerves.local`
 
+
+   ### Enabling and disabling Raspberry PI LED with openC2 
+
+  This application has openc2 implementation which is used to controll the Raspberry pi LED by turning it on and off. This is done by sending a command through the following endpoint.
+
+  `http://nerves.local/openc2`
+
+  ##### How to test
+
+  1. Connect your rasberry pi, ensure you have inserted the burned micro SD card.
+  2. Run `ssh nerves.local` 
+  3. Open your preferred API(postman, insomnia, rest API) that you can use to send the openc2 commands.
+
+  4. Send a `POST` request to this endpoint `http://nerves.local/openc2` with the following `JSON` payload
+
+  To turn on the LED
+
+   ```
+   {
+    "action": "set",
+    "target": {"x-sfractal-blinky:led": "on"},
+    "args": {"response_requested": "complete"}
+   }
+   ```
+
+   To turn off the LED
+
+   ```
+    {
+    "action": "set",
+    "target": {"x-sfractal-blinky:led": "off"},
+    "args": {"response_requested": "complete"}
+   }
+   ```
+
+
    
 
 ### WIP:
