@@ -35,22 +35,31 @@ defmodule Oc2.DoSet do
     Oc2.Command.return_error("invalid action/target or target/specifier pair")
   end
 
-  defp set_color("rainbow", command) do
-    Phoenix.PubSub.broadcast(TwinklyMaha.PubSub, @topic, "rainbow")
+  defp set_color("on", command) do
+    Firmware.Blinker.enable()
     %Oc2.Command{command | response: %{status: 200}}
   end
 
   defp set_color("off", command) do
-    Phoenix.PubSub.broadcast(TwinklyMaha.PubSub, @topic, "off")
+    Firmware.Blinker.disable()
     %Oc2.Command{command | response: %{status: 200}}
   end
 
   defp set_color(color, command) do
     if color in @colors do
-      Phoenix.PubSub.broadcast(TwinklyMaha.PubSub, @topic, color)
+      # Phoenix.PubSub.broadcast(TwinklyMaha.PubSub, @topic, color)
       %Oc2.Command{command | response: %{status: 200}}
     else
       Oc2.Command.return_error("invalid color")
     end
   end
 end
+
+# command =
+#      """
+#       {
+#        "action": "set",
+#        "target": {"x-sfractal-blinky:led": "on"},
+#        "args": {"response_requested": "complete"}
+#        }
+#      """
