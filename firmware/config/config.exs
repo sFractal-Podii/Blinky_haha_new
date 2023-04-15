@@ -50,4 +50,5 @@ else
     "led_8x8_array" -> import_config "led_8x8_array.exs"
     "led_1x50_string" -> import_config "led_1x50_string.exs"
     "led_8x8_array_dim" -> import_config "led_8x8_array.exs"
+  end
 end

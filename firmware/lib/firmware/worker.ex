@@ -96,8 +96,7 @@ defmodule Firmware.Worker do
       timer: ref,
       colors: Firmware.colors(),
       counter: 0,
-      pattern: :rainbow,
-      scroll_text: "need to fill in an array here"
+      pattern: :rainbow
     }
 
     {:ok, state}
