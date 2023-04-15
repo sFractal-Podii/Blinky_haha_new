@@ -38,4 +38,16 @@ if Mix.target() == :host do
   import_config "host.exs"
 else
   import_config "target.exs"
+  led_config = System.get_env("LED_CONFIG") || raise """
+    environment variable LED_CONFIG is missing. For example:
+    export LED_CONFIG=led_8x8array
+    Choices are:
+      led_8x8_array
+      led_1x50_string
+      led_8x8_array_dim
+    """
+  case led_config do
+    "led_8x8_array" -> import_config "led_8x8_array.exs"
+    "led_1x50_string" -> import_config "led_1x50_string.exs"
+    "led_8x8_array_dim" -> import_config "led_8x8_array.exs"
 end
