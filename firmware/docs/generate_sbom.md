@@ -76,5 +76,5 @@ The [git branch](https://github.com/sigu/sbom.git) used automates the following 
 
    ### Generated SBOM files Attached in release
 
-   1. https://github.com/sFractal-Podii/Blinky_haha_new/releases/download/v0.4.0/firmware.0.4.0-.zip
+   1. https://github.com/sFractal-Podii/Blinky_haha_new/releases/download/v0.5.0/firmware.0.5.0-.zip
    
