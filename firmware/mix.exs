@@ -2,7 +2,7 @@ defmodule Firmware.MixProject do
   use Mix.Project
 
   @app :firmware
-  @version "0.4.0"
+  @version "0.5.0"
   @all_targets [:rpi, :rpi0, :rpi2, :rpi3, :rpi3a, :rpi4, :bbb, :osd32mp1, :x86_64, :grisp2]
 
   def project do
@@ -40,6 +40,7 @@ defmodule Firmware.MixProject do
       {:nerves_runtime, "~> 0.13.0", targets: @all_targets},
       {:nerves_pack, "~> 0.7.0", targets: @all_targets},
       {:nerves_leds, "~> 0.8", targets: @all_targets},
+      {:blinkchain, "~> 1.0.0", targets: @all_targets},
 
       # Poncho dependencies
       # See https://embedded-elixir.com/post/2017-05-19-poncho-projects
