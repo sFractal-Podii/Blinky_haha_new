@@ -16,7 +16,8 @@ defmodule BlinklyHahaNew.Application do
         # Children for all targets
         # Starts a worker by calling: BlinklyHahaNew.Worker.start_link(arg)
         # {BlinklyHahaNew.Worker, arg},
-        {BlinklyHahaNew.Blinker, name: BlinklyHahaNew.Blinker}
+        # {BlinklyHahaNew.Blinker, name: BlinklyHahaNew.Blinker},
+        BlinklyHahaNew.Firmware.Worker
       ] ++ children(target())
 
     Supervisor.start_link(children, opts)
