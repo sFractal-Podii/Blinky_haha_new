@@ -72,7 +72,7 @@ defmodule UiWeb.OC2Controller do
     end
   end
 
-  defp check_one_map_key(in_map) do
+  defp check_one_map_key(_) do
     ## expecting a map and it is not therefore return error
     Logger.debug("check_one_map_key: not a map")
     :error

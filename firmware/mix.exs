@@ -31,14 +31,14 @@ defmodule Firmware.MixProject do
   defp deps do
     [
       # Dependencies for all targets
-      {:nerves, "~> 1.10", runtime: false},
-      {:shoehorn, "~> 0.9.0"},
+      {:nerves, "~> 1.11.2", runtime: false},
+      {:shoehorn, "~> 0.9.1"},
       {:ring_logger, "~> 0.8.1"},
-      {:toolshed, "~> 0.2.13"},
+      {:toolshed, "~> 0.2.26"},
 
       # Dependencies for all targets except :host
-      {:nerves_runtime, "~> 0.13.0", targets: @all_targets},
-      {:nerves_pack, "~> 0.7.0", targets: @all_targets},
+      {:nerves_runtime, "~> 0.13.7", targets: @all_targets},
+      {:nerves_pack, "~> 0.7.1", targets: @all_targets},
       {:nerves_leds, "~> 0.8", targets: @all_targets},
       {:blinkchain, "~> 1.0.0", targets: @all_targets},
 
@@ -51,17 +51,17 @@ defmodule Firmware.MixProject do
       # bumps to Nerves systems. Since these include Linux kernel and Erlang
       # version updates, please review their release notes in case
       # changes to your application are needed.
-      {:nerves_system_rpi, "~> 1.17", runtime: false, targets: :rpi},
-      {:nerves_system_rpi0, "~> 1.17", runtime: false, targets: :rpi0},
-      {:nerves_system_rpi2, "~> 1.17", runtime: false, targets: :rpi2},
-      {:nerves_system_rpi3, "~> 1.17", runtime: false, targets: :rpi3},
-      {:nerves_system_rpi3a, "~> 1.17", runtime: false, targets: :rpi3a},
-      {:nerves_system_rpi4, "~> 1.17", runtime: false, targets: :rpi4},
-      {:nerves_system_bbb, "~> 2.12", runtime: false, targets: :bbb},
-      {:nerves_system_osd32mp1, "~> 0.8", runtime: false, targets: :osd32mp1},
-      {:nerves_system_x86_64, "~> 1.17", runtime: false, targets: :x86_64},
-      {:nerves_system_grisp2, "~> 0.3", runtime: false, targets: :grisp2},
-      {:ssh_subsystem_fwup, "~> 0.6.0"},
+      {:nerves_system_rpi, "~> 1.28.1", runtime: false, targets: :rpi},
+      {:nerves_system_rpi0, "~> 1.28.1", runtime: false, targets: :rpi0},
+      {:nerves_system_rpi2, "~> 1.28.1", runtime: false, targets: :rpi2},
+      {:nerves_system_rpi3, "~> 1.28.1", runtime: false, targets: :rpi3},
+      {:nerves_system_rpi3a, "~> 1.28.1", runtime: false, targets: :rpi3a},
+      {:nerves_system_rpi4, "~> 1.28.1", runtime: false, targets: :rpi4},
+      {:nerves_system_bbb, "~> 2.24.0", runtime: false, targets: :bbb},
+      {:nerves_system_osd32mp1, "~> 0.19.1", runtime: false, targets: :osd32mp1},
+      {:nerves_system_x86_64, "~> 1.28.1", runtime: false, targets: :x86_64},
+      {:nerves_system_grisp2, "~> 0.12.1", runtime: false, targets: :grisp2},
+      {:ssh_subsystem_fwup, "~> 0.6.1"},
       {:sbom,
        git: "https://github.com/sigu/sbom.git",
        only: :dev,

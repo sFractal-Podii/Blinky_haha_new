@@ -114,7 +114,7 @@ defmodule Firmware.Worker do
       :rainbow ->
 
         [c1, c2, c3, c4, c5, c6, c7, c8 ] = Enum.slice(state.colors, 0..7)
-        tail = Enum.slice(state.colors, 1..-1)
+        tail = Enum.slice(state.colors, 1..-1//-1)
 
         # Shift all pixels to the right
         Blinkchain.copy(%Point{x: 0, y: 0}, %Point{x: 1, y: 0}, 7, 8)
